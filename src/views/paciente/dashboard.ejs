@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Pacientes | FASSIARA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 30px;
+        }
+        .contenedor {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0001;
+        }
+        h1 { color: #174a73; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #174a73;
+            color: white;
+        }
+        .boton {
+            display: inline-block;
+            background: #174a73;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Clínica Odontológica FASSIARA</h1>
+        <h2>Gestión de Pacientes</h2>
+
+        <a href="/pacientes/nuevo" class="boton">
+            + Registrar paciente
+        </a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% pacientes.forEach(paciente => { %>
+                    <tr>
+                        <td><%= paciente.id_paciente %></td>
+                        <td><%= paciente.nombre %></td>
+                        <td><%= paciente.dni %></td>
+                        <td><%= paciente.telefono %></td>
+                        <td><%= paciente.correo %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
